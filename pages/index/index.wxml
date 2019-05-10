@@ -25,7 +25,7 @@
 		 	bindinput="changeLogName"
 		 	placeholder="给您的任务取个名字吧"/>
 	</view>
-	
+  
 	<view class="timer_footer">
 	  <view 
 	  	bindtap="startTimer" 

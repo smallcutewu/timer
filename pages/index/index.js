@@ -1,4 +1,6 @@
 const util = require('../../utils/util.js')
+//init ring
+const innerAudioContext = wx.createInnerAudioContext()
 const defaultLogName = {
   work: '工作',
   rest: '休息'
@@ -35,6 +37,26 @@ Page({
       remainTimeText: workTime + ':00'
     })
   },
+ //提醒用户铃声
+ startMyRing: function()
+  {
+    innerAudioContext.autoplay = true
+   innerAudioContext.loop=true
+   innerAudioContext.src = 'cloud://wucloud-ii3yz.7775-wucloud-ii3yz/ring1.mp3'
+   innerAudioContext.play()
+   innerAudioContext.onPlay(() => {
+     console.log('开始播放')
+   })
+   innerAudioContext.onError((res) => {
+     wx.showToast({
+       title: res.errMsg,
+     })
+   })
+  },
+  stopMyRing: function()
+  {
+    innerAudioContext.stop()
+  },
 
   startTimer: function(e) {
     let startTime = Date.now()
@@ -43,7 +65,8 @@ Page({
     let showTime = this.data[timerType + 'Time']
     let keepTime = showTime * 60 * 1000
     let logName = this.logName || defaultLogName[timerType]
-
+    //重新开始时，关闭响铃
+    this.stopMyRing()
     if (!isRuning) {
       this.timer = setInterval((function() {
         this.updateTimer()
@@ -52,7 +75,7 @@ Page({
     } else {
       this.stopTimer()
     }
-
+    
     this.setData({
       isRuning: !isRuning,
       completed: false,
@@ -90,7 +113,6 @@ Page({
       leftDeg: initDeg.left,
       rightDeg: initDeg.right
     })
-
     // clear timer
     this.timer && clearInterval(this.timer)
   },
@@ -114,6 +136,8 @@ Page({
       this.setData({
         completed: true
       })
+      //当计时器剩余时间为0时，调用响铃函数
+      this.startMyRing()
       this.stopTimer()
       return
     }
