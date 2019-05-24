@@ -24,13 +24,17 @@ Page({
     completed: false,
     isRuning: false,
     leftDeg: initDeg.left,
-    rightDeg: initDeg.right
+    rightDeg: initDeg.right,
+    //背景图片
+    bgimage: '../../image/bg.jpg'
   },
 
   onShow: function() {
     if (this.data.isRuning) return
     let workTime = util.formatTime(wx.getStorageSync('workTime'), 'HH')
     let restTime = util.formatTime(wx.getStorageSync('restTime'), 'HH')
+    if(wx.getStorageSync('bgimage'))
+    {this.setData({ bgimage:wx.getStorageSync('bgimage')})}
     this.setData({
       workTime: workTime,
       restTime: restTime,
@@ -45,7 +49,7 @@ Page({
    innerAudioContext.src = 'cloud://wucloud-ii3yz.7775-wucloud-ii3yz/ring1.mp3'
    innerAudioContext.play()
    innerAudioContext.onPlay(() => {
-     console.log('开始播放')
+     //console.log('开始播放')
    })
    innerAudioContext.onError((res) => {
      wx.showToast({

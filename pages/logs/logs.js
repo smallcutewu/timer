@@ -1,15 +1,18 @@
 var util = require('../../utils/util.js')
 Page({
   data: {
-    logs: [],
+    logs:[],
     modalHidden: true,
-    toastHidden: true
+    toastHidden: true,
+    bgimage: '../../image/bg.jpg'
   },
   onShow: function() {
     wx.setNavigationBarTitle({
       title: '任务记录'
     })
-    this.getLogs()
+    this.getLogs();
+    if (wx.getStorageSync('bgimage'))
+     { this.setData({ bgimage: wx.getStorageSync('bgimage') }) }
   },
   set: function() {
 

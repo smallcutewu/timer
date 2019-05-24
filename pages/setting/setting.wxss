@@ -20,3 +20,36 @@
 .section_body{
 	margin-top: 15px;
 }
+.bg
+{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 460px;
+}
+
+.q-image-wrap {
+  position: relative;
+  left: 10%;
+  top: 0px;
+
+  width: 80%;
+  margin-right: 10rpx;
+}
+
+.q-image {
+  flex: 1;
+  /* height: 200rpx; */
+  width: 100%;
+}
+
+.q-image-remover {
+  text-align: center;
+}
+.q-button
+{
+  position: relative;
+  left: 36%;
+  top: 10px;
+}
