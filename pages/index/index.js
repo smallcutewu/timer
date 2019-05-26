@@ -35,6 +35,10 @@ Page({
     let restTime = util.formatTime(wx.getStorageSync('restTime'), 'HH')
     if(wx.getStorageSync('bgimage'))
     {this.setData({ bgimage:wx.getStorageSync('bgimage')})}
+    else
+    {
+      this.setData({ bgimage: '../../image/bg.jpg'})
+    }
     this.setData({
       workTime: workTime,
       restTime: restTime,

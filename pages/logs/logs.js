@@ -11,14 +11,19 @@ Page({
       title: '任务记录'
     })
     this.getLogs();
+    // 背景图片切换
     if (wx.getStorageSync('bgimage'))
      { this.setData({ bgimage: wx.getStorageSync('bgimage') }) }
+     else
+     {
+      this.setData({ bgimage: '../../image/bg.jpg' })
+     }
   },
   set: function() {
 
   },
   getLogs: function() {
-    let logs = wx.getStorageSync('logs')
+    var logs = wx.getStorageSync('logs')
     logs.forEach(function(item, index, arry) {
       item.startTime = new Date(item.startTime).toLocaleString()
     })

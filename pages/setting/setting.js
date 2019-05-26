@@ -2,7 +2,9 @@
 Page({
   data: {
     image: '',
-    isshow:false
+    isshow:false,
+    modalHidden:true,
+    toastHidden: true,
   },
   // 选择图片
   selectBg: function(e) {
@@ -90,5 +92,28 @@ Page({
   		key: 'restTime',
   		data: e.detail.value
   	})
-  }
+  },
+
+  switchModal: function () {
+    this.setData({
+      modalHidden: !this.data.modalHidden
+    })
+  },
+  clearSet: function () {
+        wx.setStorageSync("bgimage", "");
+        wx.setStorageSync("workTime", 25); 
+        wx.setStorageSync("restTime", 5); 
+        this.switchModal();
+    this.setData({
+      toastHidden: false
+    })
+  },
+   hideToast: function () {
+    this.setData({
+      toastHidden: true
+    })
+  },
+
+
 })
+ 

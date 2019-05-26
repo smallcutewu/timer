@@ -35,8 +35,23 @@
 	  	<view bindtap="selectBg" class="section_tip">选择背景 > </view>
 	  </view>
 	</view>
+  <!-- 恢复默认设置 -->
+  <view class='section panel'>
+  <view class='section_title'>恢复</view>
+  <view bindtap='switchModal'class="section_tip">默认设置></view>
+  </view>
+  <modal 
+		title="提示" 
+		confirm-text="确定" 
+		cancel-text="取消" 
+		hidden="{{modalHidden}}" 
+		bindconfirm="clearSet" 
+		bindcancel="switchModal">
+	    确定恢复默认设置？
+	</modal>
   <!-- 实现上传背景功能 -->
   <block wx:if="{{isshow}}">
+  <view class='section panel '>
     <view class="q-image-wrap">
       <!-- 图片缩略图  -->
       <image class="q-image" src="{{image}}" mode="aspectFill"bindtap="handleImagePreview"></image>
@@ -44,6 +59,7 @@
       <view class="q-image-remover" data-idx="{{image}}" bindtap="removeImage">删除</view>
     </view>
     <button type="default" class='q-button' size="mini" bindtap="chooseImage" >上传背景</button>
+    </view>
   </block>
 <!--
 	<view class="section panel">
@@ -56,4 +72,5 @@
 	  </view>
   	</view>
 -->
+<toast hidden="{{toastHidden}}" bindchange="hideToast">恢复成功！</toast>
 </view>

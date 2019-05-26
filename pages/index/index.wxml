@@ -1,6 +1,6 @@
 <view class="container timer {{isRuning ? 'timer--runing': ''}}">
-<image src="{{bgimage}}" class="bg"></image>
 	<view class="timer_main">
+  <image src="{{bgimage}}" class='bg'></image>
 		 <view class="timer_time-wrap">
 		 		<view class="timer_progress_mask"></view>
 		 		<view class="timer_progress timer_left">
@@ -24,7 +24,7 @@
 		 	placeholder-style="text-align:center" 
 		 	class="timer_inputname" 
 		 	bindinput="changeLogName"
-		 	placeholder="给您的任务取个名字吧"/>
+		 	placeholder="填写你的任务名"/>
 	</view>
   
 	<view class="timer_footer">
@@ -37,6 +37,8 @@
 	  	bindtap="startTimer" 
 	  	data-type="rest" 
 	  	class="timer_ctrl {{isRuning && timerType == 'work' ? 'hide' : ''}}" >{{isRuning ? '完成': '休息'}}</view>
+     <image src='../../image/flower.png' class='bottombg'></image>
+
 	</view>
 </view>
 
