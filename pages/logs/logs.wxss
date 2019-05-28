@@ -40,13 +40,30 @@
 {
   font-family: Microsoft YaHei;
   position: relative;
- font-size: 16px;
-   color:  #fd8f58;
+  /* color: rgb(247, 243, 246); */
+   color: rgba(47, 228, 252, 0.11);
   z-index: 3;
 }
 .nodata_img
 {
   position: relative;
   z-index: 3;
-
+ 
+}
+.allWork,.realWork{
+  position: absolute;
+  height: 20px;
+  z-index: 2;
+  border-radius: 10px;
+  top: -20px;
+  left: 50px;
+}
+.allWork{
+  width:70%;
+  background: white;
+  align-content: center;
+}
+.realWork{
+  width:50%;
+  background: rgb(46, 245, 46);
 }
