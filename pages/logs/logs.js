@@ -14,7 +14,7 @@ Page({
     var m = parseInt(time % (1000 * 3600) / 60 / 1000);
     var s = parseInt(time % (1000 * 3600) % (60 * 1000) / 1000);
     this.setData({
-      workTimePercent: time / 3600 / 1000 * 100 + '%',
+      workTimePercent: time / 3600 / 1000/12 * 100 + '%',
       showStudyTime: h + '时' + m + '分' + s + '秒'
     });
     wx.setNavigationBarTitle({
