@@ -21,7 +21,12 @@ Page({
       title: '任务记录'
     });
     this.getLogs();
-    if (wx.getStorageSync('bgimage')) { this.setData({ bgimage: wx.getStorageSync('bgimage') }) }
+    if (wx.getStorageSync('bgimage')) { this.setData({ bgimage: wx.getStorageSync('bgimage') })
+     }
+     else
+     {
+      this.setData({ bgimage:'../../image/bg.jpg'})
+     }
   },
   set: function () {
   },
